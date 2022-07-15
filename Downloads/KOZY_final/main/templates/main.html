@@ -1,0 +1,167 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>KOZY</title>
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+	{% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> {% endcomment %}
+	{% comment %} <link rel="stylesheet" type="text/css" href="../static/css/main.css"> {% endcomment %}
+	{% comment %} <link href="{% static 'css/main.css' %}"  type="text/css" rel="stylesheet" /> {% endcomment %}
+	<link href="{% static 'css/main.css' %}" rel="stylesheet" />
+	{% comment %} <link href="{% static 'calender/main.css' %}" rel="stylesheet" /> {% endcomment %}
+	<script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script>
+    <script src="../static/js/ie.js" type="text/javascript"></script>	
+	<script src="../static/js/main.js" type="text/javascript"></script>	
+	<script src="../static/js/weather.js" type="text/javascript"></script>	
+</head>
+<body>
+	<main class="wrap">
+		{% comment %} <video src="../static/img/bg.mp4"></video> {% endcomment %}
+		<section id="circle">
+			<article class="face1">
+				<h1>대외활동/공모전</h1>	
+				<div class="inner">
+					<div onclick="window.open('{{data.0}}')">
+						<p><i class="fab fa-android"></i></p>
+						<h2>기획</h2>
+						<h2>아이디어</h2>
+					</div>
+					<div onclick="window.open('{{data.1}}')">
+						<p><i class="fab fa-apple"></i></p>
+						<h2>영상</h2>
+						<h2>UCC</h2>
+						<h2>사진</h2>
+					</div>
+					<div onclick="window.open('{{data.2}}')">
+						<p><i class="fab fa-twitter-square"></i></p>
+						<h2>게임</h2>
+						<h2>소프트웨어</h2>
+					</div>
+					<div onclick="window.open('{{data.3}}')">
+						<p><i class="fab fa-facebook-square"></i></p>
+						<h2>대외활동</h2>
+						<h2>서포터즈</h2>
+					</div>
+					<div onclick="window.open('{{data.4}}')">
+						<p><i class="fab fa-youtube"></i></p>
+						<h2>봉사활동</h2>
+					</div>
+					<div onclick="window.open('{{data.5}}')">
+						<p><i class="fab fa-google-play"></i></p>
+						<h2>취업</h2>
+						<h2>창업</h2>
+					</div>
+				</div>
+			</article>
+
+			<article class="face2">
+				<h1>Todo List</h1>	
+				<div class="inner">
+					<div onclick="location.href='/details/todo/'">
+						<h2>What To Do</h2>				
+						<img src="{% static 'img/todo.png' %}"/>
+					</div>
+				</div>
+			</article>
+
+			<article class="face3">
+				<h1>Calendar</h1>	
+				<div class="inner">
+					<div onclick="location.href='/calender/'">
+					<!-- <div onclick="location.href='/details/bookmark/'"> -->
+						<h2>CALENDAR</h2>
+						<img src="{% static 'img/calendar.png' %}"/>
+					</div>
+				</div>
+			</article>
+
+			<article class="face4">
+				<h1>Bookmark</h1>
+				<div class="inner">
+					<div onclick="location.href='/details/bookmark/'">			
+						<img src="{% static 'img/bookmark.png' %}"/>
+						<h2>BOOKMARK</h2><br/>
+						<p>북마크 한 정보를 볼 수 있어요</p>
+					</div>
+				</div>
+			</article>
+
+			<article class="face5">
+				<h1>HELLO</h1>	
+				<div class="inner">
+					<div>
+						<h2>{{user}}님 안녕하세요</h2>
+					</div>
+					<div id="mypage" onclick="location.href='/details/'">
+						<h2>MYPAGE</h2>
+					</div>
+					<div>
+						<h2 onclick="location.href='/accounts/signout/'">LOGOUT</h2>
+					</div>
+					<img class="reflection" src="{% static 'img/reflect.png' %}">
+				</div>
+			</article>
+
+			<article class="face6">
+				<h1>NEWS</h1>	
+				<div class="inner">
+					<div>
+						<h2>Financial News</h2><br/>
+						<table class="table table-hover">
+							<tbody>
+							{% for key, value in news.items %}
+								<tr>
+								<td align="center"><a href="{{value}}" target='_blank'>{{key}}</a></td>
+								</tr>
+							{% endfor %}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</article>
+
+			<article class="face7" onclick="location.href='/main/conversation/'">
+				<h1>Voice Chatting</h1>	
+				<div class="inner">
+					<div >	
+						<div>
+							<img src="{% static 'img/mic.png' %}">
+							<h2>TALK<br> to<br/> KOZY</h2>
+							<img src="{% static 'img/line.png' %}"/>	
+						</div>
+					</div>		
+				</div>
+			</article>
+
+			<article class="face8">
+                <h1>Weather</h1>    
+                <div class="inner">
+                    <div>    
+                        <h2>Current Temperature</h2>
+                        <i class="fab fa-mixcloud"></i>
+                        <p></p>        
+						<span id='weather'></span>
+                        <span id='temp'></span>
+                    </div>
+                    <div>    
+                        <i class="fas fa-sun"></i>    
+                        <h3>Min Temperature</h3>    
+                        <p></p>
+                        <h4 id='tempMin'></h4>        
+                    </div>
+                    <div>    
+                        <i class="fas fa-bolt"></i>    
+                        <h3>Max Temperature</h3>    
+                        <p></p>
+                        <h4 id='tempMax'></h4>            
+                    </div>
+                </div>
+            </article>
+		</section>
+	</main>	
+</body>
+</html>

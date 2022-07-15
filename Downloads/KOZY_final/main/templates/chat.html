@@ -1,0 +1,50 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>KOZY</title>
+		<script src="https://kit.fontawesome.com/c47106c6a7.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/chat.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/static/js/chat.js" type="text/javascript"></script>
+    </head>
+    <body>
+		<div class="chat_wrap">
+			<img src="{% static 'img/mic.png' %}">
+			<div class="chat">
+				<ul>
+				<!-- 동적 생성 -->
+				</ul>
+			</div>
+
+			<div class="input-div">
+				<input type="text" id="output-you" placeholder="Press Enter for send message">
+			</div>
+
+			<button class="record">
+				<i class="fa fa-microphone"></i>
+			</button>
+
+			<!-- format -->
+
+			<div class="chat format">
+				<ul>
+					<li>
+						<div class="sender">
+							<span></span>
+						</div>
+						<div class="message">
+							<span class="message_content"></span>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+			<input type="hidden" name="user_id" value="{{user}}">
+        <script src="{% static 'js/sttchat.js' %}"></script>
+    </body>
+</html>

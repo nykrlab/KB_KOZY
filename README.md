@@ -1,6 +1,6 @@
 ## KOZY
 
-[KB] IT's your life - Final Project : KOZY 
+[KB] IT's your life - Final Project : KOZY - 음성챗봇 기반 개인금융비서
 Django Web Project 
 
 
@@ -11,3 +11,7 @@ Django Web Project
 ![IMG_0889](https://user-images.githubusercontent.com/70588800/179137013-c9e02e07-9ac7-45c6-99ba-5571056b3e0f.JPG)
 ![IMG_0890](https://user-images.githubusercontent.com/70588800/179137024-ad86802c-7f30-4d57-90c8-a7d81e4ff88e.JPG)
 
+### 1. Transformer 챗봇 모델 + 음성인식 API = 금융 특화 AI 음성챗봇
+### 2. 개인의 일정 관리 가능 = Calendar + Todo List
+### 3. 실시간 날씨 확인 가능
+### 4. 20대 초반 타겟팅 = 실시간 동아리 + 대외활동 + 금융 기사 확인 가능 
